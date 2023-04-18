@@ -163,6 +163,13 @@ section {
     position: relative;
 }
 
+.secHeading {
+    font-size: 5.625rem;
+    color: var(--theme-color);
+    text-transform: capitalize;
+    margin: 0 0 1.25rem;
+}
+
 /*  header css start  */
 
 header {
@@ -232,9 +239,47 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 /*  header css end  */
+/*  progress bar css start  */
+
+.progressBarWrapper {
+    position: fixed;
+    z-index: 1111;
+    bottom: 50px;
+    left: 50%;
+    width: 95%;
+    transform: translateX(-50%);
+}
+
+.progressBarWrapper .progressBar {
+    width: 100%;
+    height: 3px;
+    background: rgb(51 153 103 / 25%);
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progressBarWrapper .progressBar span {
+    width: 10px;
+    height: 10px;
+    background: var(--theme-color);
+    border-radius: 100%;
+}
+
+.progressBarWrapper .progressBar .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    transition: all 0.3s ease;
+    background: var(--theme-color);
+    height: 3px;
+}
+
+/*  progress bar end  */
 
 /*  hero section css start  */
-
 
 .heroSec {
     position: relative;
@@ -296,3 +341,22 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 /*  hero section css start  */
+
+.insightSec {
+    padding: 8rem 0;
+}
+
+.carouselSlider img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.carouselSlider .swiper-slide {
+    position: absolute;
+    opacity: 1 !important;
+}
+
+.carouselSlider .swiper-wrapper {
+    height: 700px;
+}
