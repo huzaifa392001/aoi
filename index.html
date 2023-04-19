@@ -1,144 +1,131 @@
-<?php
-	/**
-	* Template Name: Home
-	*/
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <title>Advanced Online Insights</title>
+</head>
 
-	get_header();
-?>
+<body>
 
-<!-- PreLoader CSS -->
-<div class="preLoader black">
-    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-logo.png" alt="">
+<div class="progressBarWrapper">
+    <div class="progressBar">
+        <div class="progress"></div>
+    </div>
 </div>
-<div class="preLoader white"></div>
 
-<!-- Begin: Main Slider -->
-<section class="main-slider p-0" id="mainSlider">
-    <div class="swiper-container homeSlider">
-        <div class="swiper-wrapper">
-            <?php
-        $i = 0; if( have_rows('banner') ): while ( have_rows('banner') ) : the_row();  ?>
-            <div class="swiper-slide">
-                <div class="slide-inner bg-image" data-background="<?php echo get_sub_field('image'); ?>">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <?php echo get_sub_field('heading'); ?>
-                                <?php echo get_sub_field('paragraph'); ?>
-                                <div class="btnGroup">
-                                    <a href="<?php echo get_sub_field('get_start'); ?>" class="themeBtn"><span></span>Get
-                                        Started</a>
-                                    <a href="<?php echo get_sub_field('learn_more'); ?>" class="themeBtn2">Learn
-                                        More</a>
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/images/logo.png" alt="">
+                <h3>
+                    Advanced Online Insights
+                    <span>for public</span>
+                </h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class='heroSec'>
+        <img src="https://fastly.picsum.photos/id/631/1920/1080.jpg?hmac=SVob1d9xxNqgXcX5jvpT04d34gXz3xHsz_77kWAMBc4"
+             alt=""
+             class="mainImg">
+        <h2 class="mainHeading">
+            Hello.
+            <span>We are advanced online insights.</span>
+        </h2>
+        <div class="content">
+            <p>
+                Founded as one of the first media agencies who are pioneering
+                & pushing the limits of immersive data.
+            </p>
+            <p>
+                Simply put, we collect data that integrates & makes a difference.
+            </p>
+            <p>
+                Our company is passionately committed
+                to understanding our clients and their operations - with the
+                Goal to help our clients win.
+            </p>
+            <p>
+                Check out our work, motivated by understanding our clients.
+            </p>
+            <span class="verticleLine"></span>
+        </div>
+    </section>
+    <section class="insightSec">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="secHeading">
+                        The Latest Insights
+                    </h2>
+                </div>
+                <div class="col-md-8">
+                    <div class="carouselSlider">
+                        <div class="slideWrapper">
+                            <a class="buttons prev" href="#"><</a>
+                            <div class="slideContainer">
+                                <div class="slide">
+                                    <img src="./assets/images/slide1.jpg" alt="">
+                                </div>
+                                <div class="slide">
+                                    <img src="./assets/images/slide2.jpg" alt="">
+                                </div>
+                                <div class="slide">
+                                    <img src="./assets/images/slide3.jpg" alt="">
+                                </div>
+                                <div class="slide">
+                                    <img src="./assets/images/slide4.jpg" alt="">
+                                </div>
+                                <div class="slide">
+                                    <img src="./assets/images/slide5.jpg" alt="">
                                 </div>
                             </div>
+                            <a class="buttons next" href="#">></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php
-            endwhile; endif;?>
         </div>
-        <div class="swiper-pagination"></div>
-    </div>
-</section>
-<!-- End: Main Slider -->
+    </section>
+</main>
 
-<!--About Section Start-->
-<section class="aboutSec">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 aboutBox">
-                <?php the_field('about_us_heading'); ?>
-                <?php the_field('about_us_paragraph'); ?>
-                <!--<a href="<?php the_field('about_button'); ?>" class="themeBtn"><span></span>Read More</a>-->
-            </div>
-            <div class="col-md-6">
-                <figure>
-                    <img src="<?php the_field('about_image'); ?>" class="img-fluid" alt="">
-                </figure>
-            </div>
-        </div>
-    </div>
-</section>
-<!--About Section End-->
-
-<!--What We Do Section Start-->
-<section class="what-we-do-Sec">
-    <div class="container">
-        <h2 class="secHeading">What We Do</h2>
-        <div class="row">
-            <?php
-
-                $args = array(
-                        'post_type' => 'post',
-            'posts_per_page' => '-1',
-            'order' => 'ASC'
-            );
-
-            $the_query = new WP_Query( $args );
-
-            if( $the_query-> have_posts() ) :
-
-            while( $the_query-> have_posts() ) :
-
-            $the_query-> the_post(); ?>
-            <div class="col-md-4">
-                <div class="we-do-box">
-                    <figure>
-                        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id ( $post->ID ) ); ?>"
-                             class="img-fluid" alt="">
-                    </figure>
-                    <div class="what-content">
-                        <h4><?php echo the_title(); ?></h4>
-                        <?php echo the_excerpt(); ?>
-                        <a href="<?= the_permalink(); ?>"><i class="far fa-angle-double-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <?php
-
-                    endwhile;
-
-                    wp_reset_postdata();
-
-                else:
-
-                    _e('Sorry, no posts available');
-
-                endif; ?>
-        </div>
-    </div>
-</section>
-<!--What We Do Section End-->
-
-<!--Skills Section Start-->
-<section class="skillSec">
-    <div class="container">
-        <h2 class="secHeading">Life Skills/Life <br>
-            Coaching</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="swiper reviewSlider">
-                    <div class="swiper-wrapper">
-                        <?php
-$i = 0; if( have_rows('coaching') ): while ( have_rows('coaching') ) : the_row();  ?>
-                        <div class="swiper-slide">
-                            <div class="reviewBox">
-                                <figure>
-                                    <img class="img-fluid" src="<?php echo get_sub_field('image'); ?>" alt=""/>
-                                </figure>
-                                <?php echo get_sub_field('heading'); ?>
-                            </div>
-                        </div>
-                        <?php
-endwhile; endif;?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<?php get_footer(); ?>
+</body>
+<script src="./assets/js/app.js"></script>
+<!--<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>-->
+<script src="./assets/js/index.js"></script>
+</html>
