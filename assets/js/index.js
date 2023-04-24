@@ -14,9 +14,10 @@ $(function () {
 
 function allFunctionInit() {
     lenisSetup();
-    // heroAnim();
-    // progressBar();
+    heroAnim();
+    progressBar();
     customSlider();
+    revealingImg();
 }
 
 function lenisSetup() {
@@ -80,11 +81,10 @@ function heroAnim() {
     })
     heroTl
         .to('.heroSec .mainHeading', {autoAlpha: 0,})
-        .to('.heroSec .mainImg', {scale: 1.25}, "<")
-        .from(".heroSec .content p", {autoAlpha: 0, y: 100})
+        .to('.heroSec .mainImg', {scale: 2}, "<")
+        .from(".heroSec .content p", {autoAlpha: 0, y: 100}, "-=0.25")
         .from(".heroSec .content .verticleLine", {scaleY: 0})
-        .from(".heroSec .content .verticleLine", {scaleY: 0})
-        .to('.heroSec .mainImg', {autoAlpha: 0}, "<")
+        .to('.heroSec .mainImg', {y: -20}, "<")
 }
 
 function progressBar() {
@@ -144,38 +144,44 @@ function progressBar() {
     // }
 
 }
-
+function revealingImg(){
+}
 function customSlider() {
-    let card = $('.slide');
-    let lastCard = $(".slideContainer .slide").length - 1;
-    let nextBtn = document.querySelector(".carouselSlider .next")
-    let prevBtn = document.querySelector(".carouselSlider .prev")
+    let img = document.querySelector('.revealingImg')
 
-    $(nextBtn).on("click", function () {
-        let prependList = function () {
-            if (card.hasClass('activeNow')) {
-                let $slicedCard = card.slice(lastCard).removeClass('transformThis activeNow');
-                $('ul').prepend($slicedCard);
+    let imgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.insightSec',
+            scrub: 1,
+            pin: true,
+            pinContainer: false,
+            markers: true
+        }
+    })
+    imgTl.to(img, {autoAlpha: 0, scale:0.5})
+    var $card = $('.customSlide');
+    var lastCard = $(".slider-list .card").length - 1;
+
+    $('.next').click(function(){
+        var prependList = function() {
+            if( $('.customSlide').hasClass('activeNow') ) {
+                var $slicedCard = $('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
+                $('.slider-list').prepend($slicedCard);
             }
         }
-        $('li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
-        setTimeout(function () {
-            prependList();
-        }, 150);
+        $('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+        setTimeout(function(){prependList(); }, 150);
     });
 
-    $(prevBtn).on("click", function () {
-        let appendToList = function () {
-            if (card.hasClass('activeNow')) {
-                let $slicedCard = card.slice(0, 1).addClass('transformPrev');
-                $('.carouselSlider').append($slicedCard);
-            }
-        }
+    $('.prev').click(function() {
+        var appendToList = function() {
+            if( $('.customSlide').hasClass('activeNow') ) {
+                var $slicedCard = $('.customSlide').slice(0, 1).addClass('transformPrev');
+                $('.slider-list').append($slicedCard);
+            }}
 
-        $('li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
-        setTimeout(function () {
-            appendToList();
-        }, 150);
+        $('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
+        setTimeout(function(){appendToList();}, 150);
     });
 
 }
