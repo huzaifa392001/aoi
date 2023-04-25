@@ -749,7 +749,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont .tabsCont .tab-content iframe {
     width: 100%;
-    height: 500px;
+    height: 600px;
 }
 
 .streetViewSec .streetCont .content .profileBox {
