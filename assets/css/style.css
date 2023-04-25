@@ -165,10 +165,28 @@ section {
 }
 
 .secHeading {
-    font-size: 5.625rem;
+    font-size: 7.5rem;
     color: var(--theme-color);
     text-transform: capitalize;
     margin: 0 0 1.25rem;
+    text-align: center;
+}
+
+.secHeading span {
+    display: block;
+    color: #000;
+}
+
+.subHeading {
+    font-size: 5.3125rem;
+    color: #000;
+    text-transform: capitalize;
+    margin: 0 0 1.25rem;
+}
+
+.subHeading span {
+    color: var(--theme-color);
+    display: block;
 }
 
 /*  header css start  */
@@ -354,10 +372,6 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     padding: 8rem 0;
 }
 
-.insightSec .secHeading {
-    text-align: center;
-}
-
 .insightSec .revealingImg {
     width: 100%;
     height: 100%;
@@ -369,7 +383,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .slider-stack {
     width: 100%;
-    height: 700px;
+    height: 600px;
     /* position: absolute; */
     margin: 20px auto;
 }
@@ -422,7 +436,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     border-radius: 2px;
     position: absolute;
     list-style: none;
-    height: 700px;
+    height: 600px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -544,14 +558,9 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     padding: 8rem;
 }
 
-.dataSec .secHeading {
+.dataSec .subHeading {
     position: sticky;
     top: 40vh;
-}
-
-.dataSec .secHeading span {
-    display: block;
-    color: #000;
 }
 
 .dataSec .row + .row {
@@ -602,3 +611,193 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 /*  data section css end  */
+
+/*  slide section css start  */
+
+.servSlider .swiper-slide {
+    overflow: hidden;
+    text-align: center;
+}
+
+.servSlider .swiper-slide img {
+    height: 400px;
+    margin: 2rem 0;
+}
+
+.servSlider .swiper-slide .subHeading {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.servSlider .swiper-slide p {
+    color: var(--theme-color);
+    font-size: 2rem;
+    width: 75%;
+    margin: auto;
+}
+
+.slideSec .swiper-button-next,
+.slideSec .swiper-button-prev {
+    border: 1px solid #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.slideSec .swiper-button-next::after,
+.slideSec .swiper-button-prev::after {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.slideSec .swiper-button-next:hover,
+.slideSec .swiper-button-prev:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/*  slide section css end  */
+
+/*  service section css end  */
+
+.serviceSec .servCont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.serviceSec .servCont .servBox {
+    flex: 0 1 33.333333%;
+    text-align: center;
+}
+
+.serviceSec .servCont .servBox figure img {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.serviceSec .servCont .servBox h4 {
+    font-size: 2rem;
+    margin: 1rem 0 0;
+}
+
+.serviceSec .subHeading {
+    font-size: 3rem;
+    text-align: center;
+    margin: 5rem 0 0;
+}
+
+.serviceSec .subHeading span {
+    color: #000;
+}
+
+/*  service section css end  */
+
+/*  street section css end  */
+
+.streetViewSec .streetCont {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 15vh;
+}
+
+.streetViewSec .streetCont .content {
+    width: 45%;
+    flex: 0 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.streetViewSec .streetCont .tabsCont {
+    width: 54%;
+    flex: 0 1 54%;
+}
+
+.streetViewSec .streetCont .tabsCont ul li + li {
+    border-left: 1px solid #ddd;
+}
+
+.streetViewSec .streetCont .tabsCont ul li button {
+    color: #000;
+    border: none;
+    font-weight: 500;
+    border-radius: 0;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.streetViewSec .streetCont .tabsCont ul li button.active {
+    color: var(--theme-color);
+}
+
+.streetViewSec .streetCont .tabsCont ul {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.streetViewSec .streetCont .tabsCont ul li {
+    width: -webkit-fill-available;
+}
+
+.streetViewSec .streetCont .tabsCont .tab-content iframe {
+    width: 100%;
+    height: 500px;
+}
+
+.streetViewSec .streetCont .content .profileBox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.streetViewSec .streetCont .content .profileBox figure {
+    width: 30%;
+    flex: 0 1 30%;
+}
+
+.streetViewSec .streetCont .content .profileBox figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.streetViewSec .streetCont .content .profileBox h3 {
+    color: var(--theme-color);
+    font-size: 2.75rem;
+    flex: 0 1 70%;
+    width: 70%;
+    margin: 0;
+}
+
+.streetViewSec .streetCont .content .profileBox h3 span {
+    display: block;
+}
+
+.streetViewSec .streetCont .content p {
+    font-size: 1.25rem;
+}
+
+.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe {
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe {
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+
+.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe {
+    padding-top: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/*  street section css end  */

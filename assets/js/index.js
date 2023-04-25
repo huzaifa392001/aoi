@@ -1,6 +1,6 @@
 // function initialization
 $(window).on("load", function () {
-    $(window).scrollTop(0);
+    // $(window).scrollTop(0);
 });
 
 $(function () {
@@ -18,6 +18,7 @@ function allFunctionInit() {
     progressBar();
     customSlider();
     revealingImg();
+    servSliderFunc();
 }
 
 function lenisSetup() {
@@ -144,44 +145,67 @@ function progressBar() {
     // }
 
 }
-function revealingImg(){
+
+function revealingImg() {
 }
+
 function customSlider() {
     let img = document.querySelector('.revealingImg')
 
     let imgTl = gsap.timeline({
         scrollTrigger: {
             trigger: '.insightSec',
-            scrub: 1,
+            scrub: 0.5,
             pin: true,
             pinContainer: false,
-            markers: true
         }
     })
-    imgTl.to(img, {autoAlpha: 0, scale:0.5})
+    imgTl.to(img, {autoAlpha: 0, scale: 0.5})
     var $card = $('.customSlide');
     var lastCard = $(".slider-list .card").length - 1;
 
-    $('.next').click(function(){
-        var prependList = function() {
-            if( $('.customSlide').hasClass('activeNow') ) {
+    $('.next').click(function () {
+        var prependList = function () {
+            if ($('.customSlide').hasClass('activeNow')) {
                 var $slicedCard = $('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
                 $('.slider-list').prepend($slicedCard);
             }
         }
         $('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
-        setTimeout(function(){prependList(); }, 150);
+        setTimeout(function () {
+            prependList();
+        }, 150);
     });
 
-    $('.prev').click(function() {
-        var appendToList = function() {
-            if( $('.customSlide').hasClass('activeNow') ) {
+    $('.prev').click(function () {
+        var appendToList = function () {
+            if ($('.customSlide').hasClass('activeNow')) {
                 var $slicedCard = $('.customSlide').slice(0, 1).addClass('transformPrev');
                 $('.slider-list').append($slicedCard);
-            }}
+            }
+        }
 
         $('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
-        setTimeout(function(){appendToList();}, 150);
+        setTimeout(function () {
+            appendToList();
+        }, 150);
     });
 
+}
+
+function servSliderFunc() {
+    const swiper = new Swiper('.servSlider', {
+        // Default parameters
+        slidesPerView: 1,
+        loop: true,
+        parallax: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        }
+    })
 }
