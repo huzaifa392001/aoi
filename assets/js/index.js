@@ -19,6 +19,7 @@ function allFunctionInit() {
     customSlider();
     revealingImg();
     servSliderFunc();
+    stackingCardsFunc();
 }
 
 function lenisSetup() {
@@ -207,5 +208,31 @@ function servSliderFunc() {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         }
+    })
+}
+
+function stackingCardsFunc() {
+    let cardCont = document.querySelectorAll(".streetCont")
+
+    cardCont.forEach((card, i) => {
+        let profileBox = card.querySelectorAll('.content .profileBox')
+        let para = card.querySelectorAll('.content p')
+        let tabs = card.querySelectorAll('.tabsCont ul')
+        let cardTl = gsap.timeline({
+            default: {
+                delay: 1,
+            },
+            scrollTrigger: {
+                trigger: card,
+                // markers: true,
+                start: "top 15%",
+                end: "bottom 85%",
+                toggleActions: "play none none reverse",
+            }
+        })
+        return i === 0 ? '' : cardTl.from(profileBox, {autoAlpha: 0}).from(para, {
+            autoAlpha: 0,
+            stagger: 0.05
+        }, "<").from(tabs, {autoAlpha: 0}, "<");
     })
 }

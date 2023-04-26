@@ -7,7 +7,7 @@
 
 :root {
     --theme-color: #339967;
-    --text-color: #000;
+    --text-color: #707070;
     --body-bg: #ffffff;
 }
 
@@ -85,7 +85,7 @@ figure {
 /*buttons*/
 
 .themeBtn {
-    background: var(--theme-color);
+    background: #000;
     border: 1px solid var(--theme-color);
     padding: 0.75rem 2rem;
     margin: 0;
@@ -121,7 +121,7 @@ figure {
 }
 
 .themeBtn:hover {
-    color: var(--text-color);
+    color: #fff;
 }
 
 .themeBtn:hover > span > span {
@@ -145,7 +145,7 @@ figure {
 
 .themeBtn::before {
     content: '';
-    background: #000;
+    background: var(--theme-color);
     transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
     transform-origin: 100% 50%;
 }
@@ -158,6 +158,9 @@ figure {
 section {
     min-height: 100vh;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .row [class*="col-"] {
@@ -201,7 +204,6 @@ header {
 }
 
 header .navbar-brand img {
-    width: 80px;
     height: 80px;
 }
 
@@ -702,7 +704,11 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     display: flex;
     justify-content: space-between;
     position: sticky;
-    top: 15vh;
+    top: 15%;
+}
+
+.streetViewSec .streetCont + .streetCont {
+    margin-top: 5rem;
 }
 
 .streetViewSec .streetCont .content {
@@ -711,7 +717,6 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #fff;
 }
 
 .streetViewSec .streetCont .tabsCont {
@@ -728,8 +733,9 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     border: none;
     font-weight: 500;
     border-radius: 0;
-    padding: 0.5rem;
     width: 100%;
+    padding: 0;
+    font-size: 0.875rem;
 }
 
 .streetViewSec .streetCont .tabsCont ul li button.active {
@@ -741,6 +747,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     flex-wrap: nowrap;
     border: none;
     margin-bottom: 2rem;
+    background: #fff;
 }
 
 .streetViewSec .streetCont .tabsCont ul li {
@@ -756,6 +763,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     display: flex;
     align-items: center;
     gap: 1rem;
+    background: #fff;
 }
 
 .streetViewSec .streetCont .content .profileBox figure {
@@ -783,6 +791,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont .content p {
     font-size: 1.25rem;
+    background: #fff;
 }
 
 .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe {
@@ -801,3 +810,64 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 /*  street section css end  */
+
+/*  testimonial section css start  */
+
+.testiSec .testiBox {
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.testiSec .testiBox img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.testiSec .testiBox .content {
+    margin-top: 4rem;
+}
+
+.testiSec .testiBox .content p {
+    font-size: 1.125rem;
+    color: var(--text-color);
+}
+
+/*  testimonial section css end  */
+
+/*  contact section css start  */
+
+.contactSec .content .secHeading {
+    font-size: 6rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.contactSec .content p {
+    font-size: 1.5rem;
+    width: 85%;
+}
+
+.contactSec form .row {
+    gap: 1rem 0;
+}
+
+.contactSec form .inputCont input,
+.contactSec form .inputCont textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    outline: none;
+}
+
+.contactSec form .themeBtn {
+    width: 100%;
+}
+
+/*  contact section css end  */
