@@ -1,5 +1,7 @@
 // function initialization
 $(window).on("load", function () {
+
+    lenisSetup();
     // $(window).scrollTop(0);
 });
 
@@ -13,7 +15,6 @@ $(function () {
 });
 
 function allFunctionInit() {
-    lenisSetup();
     heroAnim();
     progressBar();
     customSlider();
@@ -101,49 +102,52 @@ function progressBar() {
     document.addEventListener("scroll", function () {
         document.querySelector(".progress").style.width = progress + "%";
     });
-    // window.addEventListener("scroll", function() {
-    //     // Calculate the position of each section
-    //     let sectionPositions = [];
-    //     sections.forEach(function(sectionId) {
-    //         let section = document.getElementById(sectionId);
-    //         let position = section.offsetTop;
-    //         sectionPositions.push(position);
-    //     });
-    //
-    //     // Calculate the percentage of the page that has been scrolled
-    //     let scrollTop = window.scrollY;
-    //     let docHeight = document.body.offsetHeight;
-    //     let winHeight = window.innerHeight;
-    //     let scrollPercent = scrollTop / (docHeight - winHeight) * 100;
-    //
-    //     // Update the width of the progress bar
-    //     let progressBar = document.querySelector(".progress-bar");
-    //     progressBar.style.width = scrollPercent + "%";
-    //
-    //     // Highlight the corresponding checkpoint
-    //     let activeIndex = getActiveIndex(scrollTop, sectionPositions);
-    //     highlightCheckpoint(activeIndex);
-    // });
-    //
-    // function getActiveIndex(scrollTop, sectionPositions) {
-    //     for (let i = sectionPositions.length - 1; i >= 0; i--) {
-    //         if (scrollTop >= sectionPositions[i]) {
-    //             return i;
-    //         }
-    //     }
-    //     return 0;
-    // }
-    //
-    // function highlightCheckpoint(index) {
-    //     let checkpoints = document.querySelectorAll(".checkpoint");
-    //     for (let i = 0; i < checkpoints.length; i++) {
-    //         if (i == index) {
-    //             checkpoints[i].classList.add("active");
-    //         } else {
-    //             checkpoints[i].classList.remove("active");
-    //         }
-    //     }
-    // }
+    window.addEventListener("scroll", function () {
+        // Calculate the position of each section
+        let sectionPositions = [];
+        sections.forEach((section) => {
+            // let section = document.getElementById(section);
+            let position = section.offsetTop;
+            sectionPositions.push(position);
+        })
+        // sections.forEach(()=>{function(sectionId) {
+        //
+        // })};
+
+        // Calculate the percentage of the page that has been scrolled
+        let scrollTop = window.scrollY;
+        let docHeight = document.body.offsetHeight;
+        let winHeight = window.innerHeight;
+        let scrollPercent = scrollTop / (docHeight - winHeight) * 100;
+
+        // Update the width of the progress bar
+        let progressBar = document.querySelector(".progress");
+        $(progressBar).css("width", scrollPercent + "%");
+
+        // Highlight the corresponding checkpoint
+        let activeIndex = getActiveIndex(scrollTop, sectionPositions);
+        highlightCheckpoint(activeIndex);
+    });
+
+    function getActiveIndex(scrollTop, sectionPositions) {
+        for (let i = sectionPositions.length - 1; i >= 0; i--) {
+            if (scrollTop >= sectionPositions[i]) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    function highlightCheckpoint(index) {
+        let checkpoints = document.querySelectorAll(".checkpoint");
+        for (let i = 0; i < checkpoints.length; i++) {
+            if (i == index) {
+                checkpoints[i].classList.add("active");
+            } else {
+                checkpoints[i].classList.remove("active");
+            }
+        }
+    }
 
 }
 
@@ -215,9 +219,6 @@ function stackingCardsFunc() {
     let cardCont = document.querySelectorAll(".streetCont")
 
     cardCont.forEach((card, i) => {
-        let profileBox = card.querySelectorAll('.content .profileBox')
-        let para = card.querySelectorAll('.content p')
-        let tabs = card.querySelectorAll('.tabsCont ul')
         let cardTl = gsap.timeline({
             default: {
                 delay: 1,
@@ -226,13 +227,27 @@ function stackingCardsFunc() {
                 trigger: card,
                 // markers: true,
                 start: "top 15%",
-                end: "bottom 85%",
+                end: "bottom 15%",
                 toggleActions: "play none none reverse",
+                preventOverlaps: true,
+                fastScrollEnd: true,
+                onEnter: () => {
+                    $(card).addClass("active")
+                },
+                onLeave: () => {
+                    $(card).removeClass("active")
+                },
+                onEnterBack: () => {
+                    $(card).addClass("active")
+                },
+                onLeaveBack: () => {
+                    $(card).removeClass("active")
+                },
             }
         })
-        return i === 0 ? '' : cardTl.from(profileBox, {autoAlpha: 0}).from(para, {
-            autoAlpha: 0,
-            stagger: 0.05
-        }, "<").from(tabs, {autoAlpha: 0}, "<");
+        // return i === 0 ? '' : cardTl.from(profileBox, {autoAlpha: 0}).from(para, {
+        //     autoAlpha: 0,
+        //     stagger: 0.05
+        // }, "<").from(tabs, {autoAlpha: 0}, "<");
     })
 }

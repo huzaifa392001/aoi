@@ -1,0 +1,112 @@
+@media (max-width: 1366px) {
+    html {
+        font-size: 14px;
+    }
+
+    .heroSec .mainHeading {
+        font-size: 4.5rem;
+    }
+
+    .heroSec .content p {
+        width: 75%;
+    }
+
+    .secHeading {
+        font-size: 5rem;
+    }
+
+    .slider-stack .slider-list li,
+    .slider-stack {
+        height: 500px;
+    }
+
+    .dataSec .imgCont figure, .dataSec .imgCont .contentBox {
+        height: 200px;
+    }
+
+    .dataSec .imgCont .contentBox p {
+        font-size: 1.25rem;
+    }
+
+    .streetViewSec .streetCont .tabsCont .tab-content iframe {
+        height: 400px;
+    }
+
+    .contactSec .content .secHeading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    html {
+        font-size: 13px;
+    }
+
+    .servSlider .swiper-slide p {
+        width: 100%;
+        font-size: 1.75rem;
+    }
+
+    .streetViewSec .streetCont .content .profileBox h3 {
+        font-size: 2rem;
+    }
+
+    .streetViewSec .streetCont .content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .testiSec .testiBox img {
+        height: 120px;
+    }
+
+    .testiSec .testiBox .content p {
+        font-size: 1rem;
+    }
+
+    .subHeading {
+        font-size: 4.25rem;
+    }
+
+    .servSlider .swiper-slide .subHeading {
+        font-size: 3rem;
+    }
+
+    .serviceSec .servCont .servBox figure img {
+        height: 150px;
+    }
+
+    .contactSec .content p {
+        width: 100%;
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    html {
+        font-size: 12px;
+    }
+
+    .streetViewSec .streetCont .tabsCont .tab-content iframe {
+        height: 350px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 320.98px) {
+    html {
+        font-size: 11px;
+    }
+}
