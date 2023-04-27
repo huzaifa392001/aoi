@@ -35,6 +35,11 @@
     .contactSec .content .secHeading {
         font-size: 3.5rem;
     }
+
+    .heroSec .content {
+        justify-content: initial;
+        padding-top: 10rem;
+    }
 }
 
 @media (max-width: 1199.98px) {
@@ -97,16 +102,210 @@
     html {
         font-size: 14px;
     }
+
+    header .navbar-nav {
+        gap: 0.5rem;
+    }
+
+    header .navbar-nav .nav-item .nav-link {
+        display: inline-block;
+    }
+
+    header .navbar-nav .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .heroSec .mainHeading {
+        font-size: 3rem;
+    }
+
+    .heroSec .content p {
+        font-size: 1rem;
+        width: 90%;
+    }
+
+    .slider-stack .prev {
+        left: 20px;
+    }
+
+    .slider-stack .next {
+        right: 20px;
+    }
+
+    .slider-stack .buttons:hover {
+        transform: none;
+    }
+
+    .slider-stack .slider-list {
+        position: relative;
+        width: 100%;
+    }
+
+    .slider-stack .buttons {
+        color: #fff;
+        border-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .dataSec .subHeading {
+        position: unset;
+        text-align: center;
+    }
+
+    .dataSec .subHeading span {
+        display: initial;
+    }
+
+    .secHeading {
+        font-size: 3.5rem;
+    }
+
+    .servSlider .swiper-slide .subHeading {
+        font-size: 2rem;
+    }
+
+    .servSlider .swiper-slide img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .servSlider .swiper-slide p {
+        font-size: 1.25rem;
+    }
+
+    .slideSec .swiper-button-next, .slideSec .swiper-button-prev {
+        display: none;
+    }
+
+    .serviceSec .subHeading {
+        font-size: 1.75rem;
+    }
+
+    .testiSec .row {
+        gap: 2rem;
+    }
+
+    .contactSec form .row {
+        margin: 2rem 0 0;
+    }
+
+    .streetViewSec .streetCont .content .profileBox {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+    }
+
+    .streetViewSec {
+        margin: 5rem 0;
+    }
+
+    .streetViewSec .streetCont .content .profileBox figure img {
+        height: auto;
+    }
+
+    .streetViewSec .streetCont .content .profileBox h3 {
+        width: 100%;
+    }
+
+    .streetViewSec .streetCont .content .profileBox h3 span {
+        display: initial;
+    }
+
+    .streetViewSec .streetCont .content .profileBox h3 span {
+        display: initial;
+    }
+
+    .contactSec {
+        padding-bottom: 5rem;
+    }
+
+    .contactSec form .inputCont input, .contactSec form .inputCont textarea {
+        padding: 0.25rem 1rem;
+        min-height: 40px;
+    }
 }
 
 @media (max-width: 575.98px) {
     html {
         font-size: 13px;
     }
+
+    .heroSec .mainHeading {
+        font-size: 2.5rem;
+    }
+
+    .subHeading {
+        font-size: 2.5rem;
+    }
+
+    .streetViewSec .streetCont {
+        flex-direction: column;
+        top: 5%;
+    }
+
+    .streetViewSec .streetCont .content {
+        width: 100%;
+    }
+
+    .streetViewSec .streetCont .tabsCont {
+        width: 100%;
+    }
+
+    .slider-stack .slider-list li, .slider-stack {
+        height: 350px;
+    }
+
+    .serviceSec .servCont {
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
 
-@media (max-width: 320.98px) {
+@media (max-width: 400px) {
     html {
         font-size: 11px;
+    }
+
+    header .navbar-brand {
+        width: 75%;
+    }
+
+    header .navbar-brand img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .secHeading {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .servSlider .swiper-slide .subHeading {
+        font-size: 1.5rem;
+    }
+
+    .dataSec .imgCont {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dataSec .imgCont + .imgCont {
+        margin-top: 30px;
+    }
+
+    .dataSec .imgCont figure, .dataSec .imgCont .contentBox {
+        width: 100%;
+    }
+
+    .dataSec .imgCont figure img {
+        width: 30%;
+        height: 30%;
+    }
+
+    .dataSec .row + .row {
+        margin-top: 4rem;
     }
 }
