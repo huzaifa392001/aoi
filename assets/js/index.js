@@ -47,12 +47,14 @@ function lenisSetup() {
 }
 
 function preloader() {
-    let loaderTl = gsap.timeline()
+    let loaderTl = gsap.timeline({defaults: {ease: 'Power2.out'}})
 
     loaderTl
+        .to('.preloader svg', {
+            scale: 0
+        })
         .to('.preloader', {
-            scaleY: 0,
-            autoAlpha: 0
+            scaleY: 0
         })
         .from('.mainHeading', {
             y: 100,
@@ -220,7 +222,7 @@ function stackingCardsFunc() {
             },
             scrollTrigger: {
                 trigger: card,
-                markers: true,
+                // markers: true,
                 start: "top 15%",
                 end: "bottom+=150 15%",
                 toggleActions: "play none none reverse",

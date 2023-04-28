@@ -973,6 +973,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     align-items: center;
     justify-content: center;
     margin: auto;
+    transform-origin: top;
 }
 
 .preloader svg {
