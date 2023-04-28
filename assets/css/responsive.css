@@ -1,8 +1,10 @@
-@media (max-width: 1366px) {
+@media (max-width: 1440px) {
     html {
         font-size: 14px;
     }
+}
 
+@media (max-width: 1366px) {
     .heroSec .mainHeading {
         font-size: 4.5rem;
     }
@@ -12,7 +14,7 @@
     }
 
     .secHeading {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .slider-stack .slider-list li,
@@ -71,7 +73,7 @@
     }
 
     .subHeading {
-        font-size: 4.25rem;
+        font-size: 3.5rem;
     }
 
     .servSlider .swiper-slide .subHeading {
@@ -153,6 +155,7 @@
     .dataSec .subHeading {
         position: unset;
         text-align: center;
+        font-size: 2.75rem;
     }
 
     .dataSec .subHeading span {
@@ -226,6 +229,10 @@
         padding: 0.25rem 1rem;
         min-height: 40px;
     }
+
+    .contactSec form .row [class*="col-"] {
+        padding: 0;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -267,6 +274,10 @@
 @media (max-width: 400px) {
     html {
         font-size: 11px;
+    }
+
+    .dataSec .subHeading {
+        font-size: 2.5rem;
     }
 
     header .navbar-brand {

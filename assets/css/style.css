@@ -177,11 +177,12 @@ section {
 }
 
 .secHeading {
-    font-size: 7.5rem;
+    font-size: 5rem;
     color: var(--theme-color);
     text-transform: capitalize;
     margin: 0 0 1.25rem;
     text-align: center;
+    font-weight: 700;
 }
 
 .secHeading span {
@@ -190,10 +191,11 @@ section {
 }
 
 .subHeading {
-    font-size: 5.3125rem;
+    font-size: 4.5rem;
     color: #000;
     text-transform: capitalize;
     margin: 0 0 1.25rem;
+    font-weight: 600;
 }
 
 .subHeading span {
@@ -335,7 +337,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     top: 50%;
     transform: translateY(-50%);
     color: #fff;
-    font-size: 5.275rem;
+    font-size: 6rem;
     text-align: center;
     z-index: 1;
     width: 100%;
@@ -617,7 +619,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 .dataSec .imgCont .contentBox p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
 }
@@ -824,7 +826,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont .content .profileBox h3 {
     color: var(--theme-color);
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     flex: 0 1 70%;
     width: 70%;
     margin: 0;
@@ -896,7 +898,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 /*  contact section css start  */
 
 .contactSec .content .secHeading {
-    font-size: 6rem;
+    font-size: 4.5rem;
     text-align: left;
     font-weight: 700;
 }
@@ -925,10 +927,6 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     width: 100%;
     color: #fff;
     z-index: 1;
-}
-
-.contactSec form .row [class*="col-"] {
-    padding: 0;
 }
 
 /*  contact section css end  */
