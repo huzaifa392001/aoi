@@ -1,7 +1,7 @@
 // function initialization
 $(window).on("load", function () {
-
     lenisSetup();
+    preloader()
     // $(window).scrollTop(0);
 });
 
@@ -47,30 +47,25 @@ function lenisSetup() {
 }
 
 function preloader() {
-    let loadertl = gsap.timeline({onComplete: scrollLetters()});
+    let loaderTl = gsap.timeline()
 
-    loadertl
-        .to('.loadingScreen', {
-            delay: 4,
+    loaderTl
+        .to('.preloader', {
+            scaleY: 0,
             autoAlpha: 0
         })
-        .to(".preloader div", {
-            yPercent: -100,
-            stagger: 0.2,
-            ease: 'Power2.out'
+        .from('.mainHeading', {
+            y: 100,
+            autoAlpha: 0
         })
-        .to('.bannerSec .content h1 span .char', {
-            x: 0,
-            autoAlpha: 1,
-            duration: 0.3,
-            stagger: 0.1,
-            scale: 1,
-            ease: "circ.out",
+        .from('.progressBarWrapper', {
+            scale: 0
         })
-        .add(function () {
-            buttonUnderlineAnim.setDirection(1);
-            buttonUnderlineAnim.play();
-        }, '<')
+        .from('.progressBarWrapper span', {
+            x: -10,
+            autoAlpha: 0,
+            stagger: 0.1
+        }, "-=0.25")
 }
 
 function heroAnim() {
