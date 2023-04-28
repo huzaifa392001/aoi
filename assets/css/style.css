@@ -320,7 +320,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     max-height: 100vh;
 }
 
-.heroSec img {
+.heroSec img,
+.heroSec video {
     width: 100%;
     height: 1080px;
     object-fit: cover;
@@ -725,7 +726,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 .streetViewSec .streetCont + .streetCont {
-    margin-top: 5rem;
+    margin-top: 150px;
 }
 
 .streetViewSec .streetCont .content {

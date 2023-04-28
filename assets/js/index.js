@@ -220,9 +220,9 @@ function stackingCardsFunc() {
             },
             scrollTrigger: {
                 trigger: card,
-                // markers: true,
+                markers: true,
                 start: "top 15%",
-                end: "bottom 15%",
+                end: "bottom+=150 15%",
                 toggleActions: "play none none reverse",
                 preventOverlaps: true,
                 fastScrollEnd: true,
