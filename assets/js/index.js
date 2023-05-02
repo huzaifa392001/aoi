@@ -51,7 +51,8 @@ function preloader() {
 
     loaderTl
         .to('.preloader svg', {
-            scale: 0
+            scale: 0,
+            delay: 1
         })
         .to('.preloader', {
             scaleY: 0
@@ -81,7 +82,7 @@ function heroAnim() {
     })
     heroTl
         .to('.heroSec .mainHeading', {autoAlpha: 0,})
-        .to('.heroSec .mainImg', {scale: 2}, "<")
+        .to('.heroSec .mainImg', {scale: 1.375}, "<")
         .from(".heroSec .content p", {autoAlpha: 0, y: 100}, "-=0.25")
         .from(".heroSec .content .verticleLine", {scaleY: 0})
         .to('.heroSec .mainImg', {y: -20}, "<")
@@ -201,15 +202,26 @@ function servSliderFunc() {
         slidesPerView: 1,
         loop: true,
         parallax: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 3000,
+        //     disableOnInteraction: false,
+        // },
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         }
     })
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".servSlider",
+            start: "top top",
+            onEnter: () => {
+                console.log(swiper.autoplay)
+                swiper.autoplay.start();
+            }
+        }
+    })
+    console.log(swiper.autoplay)
 }
 
 function stackingCardsFunc() {

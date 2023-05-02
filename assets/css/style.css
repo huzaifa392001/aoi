@@ -462,22 +462,23 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .slider-stack .slider-list li:nth-child(1) {
     top: 72px;
-    width: 80%;
+    width: 70%;
     /* animation: scaleCard 100ms; */
 }
 
 .slider-stack .slider-list li:nth-child(2) {
     top: 60px;
-    width: 90%;
+    width: 80%;
 }
 
 .slider-stack .slider-list li:nth-child(3) {
     top: 48px;
-    width: 100%;
+    width: 90%;
 }
 
 .slider-stack .slider-list li:nth-child(4) {
     top: 36px;
+    width: 100%;
 }
 
 .slider-stack .slider-list li:nth-child(5) {
@@ -730,20 +731,26 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 .streetViewSec .streetCont .content {
-    width: 45%;
-    flex: 0 1 45%;
+    width: 40%;
+    flex: 0 1 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .streetViewSec .streetCont .tabsCont {
-    width: 54%;
-    flex: 0 1 54%;
+    width: 55%;
+    flex: 0 1 55%;
 }
 
-.streetViewSec .streetCont .tabsCont ul li + li {
-    border-left: 1px solid #ddd;
+.streetViewSec .streetCont .tabsCont ul li + li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 1px;
+    background: #ddd;
+    height: 100%;
 }
 
 .slider-stack .slider-list li a {
@@ -784,9 +791,9 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     font-weight: 500;
     border-radius: 0;
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.75rem;
     white-space: nowrap;
-    padding: 0 1rem;
+    padding: 0;
 }
 
 .streetViewSec .streetCont .tabsCont ul li button.active {
@@ -803,7 +810,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .streetViewSec .streetCont .tabsCont ul::-webkit-scrollbar-track {
@@ -826,6 +833,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont .tabsCont ul li {
     width: auto;
+    position: relative;
 }
 
 .streetViewSec .streetCont .tabsCont .tab-content iframe {
@@ -882,18 +890,21 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe {
-    padding-top: 0.5rem;
-    padding-right: 0.5rem;
+    position: relative;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 
 .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe {
-    padding-top: 1rem;
-    padding-right: 1rem;
+    position: relative;
+    top: 1rem;
+    right: 1rem;
 }
 
 .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe {
-    padding-top: 1.5rem;
-    padding-right: 1.5rem;
+    position: relative;
+    top: 1.5rem;
+    right: 1.5rem;
 }
 
 /*  street section css end  */
