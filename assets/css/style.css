@@ -382,6 +382,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .insightSec {
     padding: 8rem 0;
+    overflow: hidden;
 }
 
 .insightSec .revealingImg {
@@ -462,23 +463,26 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .slider-stack .slider-list li:nth-child(1) {
     top: 72px;
-    width: 70%;
+    width: 80%;
     /* animation: scaleCard 100ms; */
 }
 
 .slider-stack .slider-list li:nth-child(2) {
     top: 60px;
-    width: 80%;
+    width: 90%;
 }
+
+/*.slider-stack .slider-list li:nth-child(3) img {*/
+/*    transform: scale(3);*/
+/*}*/
 
 .slider-stack .slider-list li:nth-child(3) {
     top: 48px;
-    width: 90%;
+    width: 100%;
 }
 
 .slider-stack .slider-list li:nth-child(4) {
     top: 36px;
-    width: 100%;
 }
 
 .slider-stack .slider-list li:nth-child(5) {

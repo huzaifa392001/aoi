@@ -153,24 +153,32 @@ function revealingImg() {
 }
 
 function customSlider() {
+    let slide = document.querySelector('.slider-stack .slider-list li:nth-child(3)')
     let img = document.querySelector('.revealingImg')
-
     let imgTl = gsap.timeline({
         scrollTrigger: {
             trigger: '.insightSec',
             scrub: 0.5,
             pin: true,
             pinContainer: false,
+            onLeave: () => {
+                imgTl.to(img, {autoAlpha: 0, ease: "none"})
+            }
         }
     })
-    imgTl.to(img, {autoAlpha: 0, scale: 0.5})
-    var $card = $('.customSlide');
-    var lastCard = $(".slider-list .card").length - 1;
+    imgTl
+        .to(img, {scale: 0.45, y: 10})
+        .to(img, {css: {height: "1200px"}}, "-=0.5")
+    // .to(img, {autoAlpha: 0}, "<")
+
+
+    let $card = $('.customSlide');
+    let lastCard = $(".slider-list .card").length - 1;
 
     $('.next').click(function () {
-        var prependList = function () {
+        let prependList = function () {
             if ($('.customSlide').hasClass('activeNow')) {
-                var $slicedCard = $('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
+                let $slicedCard = $('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
                 $('.slider-list').prepend($slicedCard);
             }
         }
@@ -181,9 +189,9 @@ function customSlider() {
     });
 
     $('.prev').click(function () {
-        var appendToList = function () {
+        let appendToList = function () {
             if ($('.customSlide').hasClass('activeNow')) {
-                var $slicedCard = $('.customSlide').slice(0, 1).addClass('transformPrev');
+                let $slicedCard = $('.customSlide').slice(0, 1).addClass('transformPrev');
                 $('.slider-list').append($slicedCard);
             }
         }
@@ -221,7 +229,6 @@ function servSliderFunc() {
             }
         }
     })
-    console.log(swiper.autoplay)
 }
 
 function stackingCardsFunc() {
