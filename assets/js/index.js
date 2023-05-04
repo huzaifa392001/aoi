@@ -208,10 +208,6 @@ function servSliderFunc() {
         slidesPerView: 1,
         loop: true,
         parallax: true,
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false,
-        // },
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -231,9 +227,8 @@ function servSliderFunc() {
 
 function stackingCardsFunc() {
 
-    gsap.registerPlugin(ScrollTrigger);
-
     let sections = gsap.utils.toArray(".panel");
+    let cardCont = document.querySelectorAll(".streetCont")
 
     gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
@@ -246,7 +241,6 @@ function stackingCardsFunc() {
             end: () => "+=" + (document.querySelector(".servSlider").offsetWidth) * 2
         }
     });
-    let cardCont = document.querySelectorAll(".streetCont")
 
     cardCont.forEach((card, i) => {
         let cardTl = gsap.timeline({
