@@ -20,7 +20,6 @@ function allFunctionInit() {
     customSlider();
     revealingImg();
     stackingCardsFunc();
-    horizontalScroll()
 }
 
 function lenisSetup() {
@@ -169,7 +168,6 @@ function customSlider() {
     imgTl
         .to(img, {scale: 0.45, y: 10})
         .to(img, {css: {height: "1200px"}}, "-=0.5")
-    // .to(img, {autoAlpha: 0}, "<")
 
 
     let $card = $('.customSlide');
@@ -232,6 +230,22 @@ function servSliderFunc() {
 }
 
 function stackingCardsFunc() {
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray(".panel");
+
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".slideSec",
+            pin: true,
+            scrub: 1,
+            snap: 1 / (sections.length - 1),
+            end: () => "+=" + (document.querySelector(".servSlider").offsetWidth) * 2
+        }
+    });
     let cardCont = document.querySelectorAll(".streetCont")
 
     cardCont.forEach((card, i) => {
@@ -262,23 +276,4 @@ function stackingCardsFunc() {
             }
         })
     })
-}
-function horizontalScroll(){
-    gsap.registerPlugin(ScrollTrigger);
-
-    let sections = gsap.utils.toArray(".panel");
-
-    gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".slideSec",
-            pin: true,
-            scrub: 1,
-            snap: 1 / (sections.length - 1),
-            end: () => "+=" + (document.querySelector(".servSlider").offsetWidth ) * 2
-        }
-    });
-
-
 }
