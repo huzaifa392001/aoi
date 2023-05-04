@@ -639,22 +639,30 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 /*  slide section css start  */
 
-.servSlider .swiper-slide {
+.servSlider {
     overflow: hidden;
     text-align: center;
+    display: flex;
+    align-items: center;
+    /*gap: 15rem;*/
 }
 
-.servSlider .swiper-slide img {
+.servSlider .panel {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.servSlider img {
     height: 400px;
     margin: 2rem 0;
 }
 
-.servSlider .swiper-slide .subHeading {
+.servSlider .subHeading {
     font-size: 4rem;
     margin: 0;
 }
 
-.servSlider .swiper-slide p {
+.servSlider p {
     color: var(--theme-color);
     font-size: 2rem;
     width: 75%;

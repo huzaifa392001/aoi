@@ -19,8 +19,8 @@ function allFunctionInit() {
     progressBar();
     customSlider();
     revealingImg();
-    servSliderFunc();
     stackingCardsFunc();
+    horizontalScroll()
 }
 
 function lenisSetup() {
@@ -261,9 +261,24 @@ function stackingCardsFunc() {
                 },
             }
         })
-        // return i === 0 ? '' : cardTl.from(profileBox, {autoAlpha: 0}).from(para, {
-        //     autoAlpha: 0,
-        //     stagger: 0.05
-        // }, "<").from(tabs, {autoAlpha: 0}, "<");
     })
+}
+function horizontalScroll(){
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray(".panel");
+
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".slideSec",
+            pin: true,
+            scrub: 1,
+            snap: 1 / (sections.length - 1),
+            end: () => "+=" + (document.querySelector(".servSlider").offsetWidth ) * 2
+        }
+    });
+
+
 }
