@@ -72,7 +72,7 @@
         font-size: 1rem;
     }
 
-    .subHeading {
+    .subHeading, .servSlider .subHeading {
         font-size: 3.5rem;
     }
 
@@ -233,6 +233,17 @@
     .contactSec form .row [class*="col-"] {
         padding: 0;
     }
+
+    .servSlider img {
+        width: 100%;
+        object-fit: contain;
+        margin: 0;
+    }
+
+    .servSlider p {
+        width: 100%;
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -244,7 +255,7 @@
         font-size: 2.5rem;
     }
 
-    .subHeading {
+    .subHeading, .servSlider .subHeading {
         font-size: 2.5rem;
     }
 
