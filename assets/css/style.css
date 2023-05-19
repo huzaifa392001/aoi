@@ -755,14 +755,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     flex: 0 1 55%;
 }
 
-.streetViewSec .streetCont .tabsCont ul li + li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 1px;
-    background: #ddd;
-    height: 100%;
+.streetViewSec .streetCont .tabsCont ul li + li {
+    border-left: 1px solid #eee;
 }
 
 .slider-stack .slider-list li a {
@@ -803,7 +797,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     font-weight: 500;
     border-radius: 0;
     width: 100%;
-    font-size: 0.75rem;
+    font-size: 1rem;
     white-space: nowrap;
     padding: 0;
 }
@@ -846,6 +840,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 .streetViewSec .streetCont .tabsCont ul li {
     width: auto;
     position: relative;
+    padding: 0 1rem;
 }
 
 .streetViewSec .streetCont .tabsCont .tab-content iframe {
@@ -901,19 +896,53 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     visibility: visible;
 }
 
-.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe {
+.streetViewSec .streetCont .tabsCont .tab-content .tab-pane {
+    position: relative;
+}
+
+
+.streetViewSec .streetCont .tabsCont .tab-content .overlay {
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.streetViewSec .streetCont .tabsCont .tab-content .overlay::before {
+    content: 'Click To Interact';
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe,
+.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay,
+.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay::before {
     position: relative;
     top: 0.5rem;
     right: 0.5rem;
 }
 
-.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe {
+.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe,
+.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay,
+.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay::before {
     position: relative;
     top: 1rem;
     right: 1rem;
 }
 
-.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe {
+.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe,
+.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay,
+.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay::before {
     position: relative;
     top: 1.5rem;
     right: 1.5rem;

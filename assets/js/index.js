@@ -1,6 +1,8 @@
 // function initialization
 $(window).on("load", function () {
-    lenisSetup();
+    if (window.innerWidth > 991) {
+        lenisSetup();
+    }
     preloader()
     // $(window).scrollTop(0);
 });
@@ -152,6 +154,7 @@ function revealingImg() {
 }
 
 function customSlider() {
+    let mm = gsap.matchMedia();
     let slide = document.querySelector('.slider-stack .slider-list li:nth-child(3)')
     let img = document.querySelector('.revealingImg')
     let imgTl = gsap.timeline({
@@ -165,10 +168,28 @@ function customSlider() {
             }
         }
     })
-    imgTl
-        .to(img, {scale: 0.45, y: 10})
-        .to(img, {css: {height: "1200px"}}, "-=0.5")
 
+    mm.add("(min-width: 992px)", () => {
+        imgTl
+            .to(img, {scale: 0.45, y: 10})
+            .to(img, {css: {height: "1200px"}}, "-=0.5")
+    });
+
+    mm.add("(max-width: 991px) and (min-width: 768px)", () => {
+        imgTl
+            .to(img, {scale: 0.5})
+            .to(img, {css: {height: "1000px"}}, "-=0.5")
+    });
+    mm.add("(max-width: 767px) and (min-width: 576px)", () => {
+        imgTl
+            .to(img, {scaleY: 0.5, scaleX: 0.985})
+            .to(img, {css: {height: "1000px"}}, "-=0.5")
+    });
+    mm.add("(max-width: 575px)", () => {
+        imgTl
+            .to(img, {scaleY: 0.5, scaleX: 0.95, y: 150})
+            .to(img, {css: {height: "700px"}}, "-=0.5")
+    });
 
     let $card = $('.customSlide');
     let lastCard = $(".slider-list .card").length - 1;
@@ -229,6 +250,13 @@ function stackingCardsFunc() {
 
     let sections = gsap.utils.toArray(".panel");
     let cardCont = document.querySelectorAll(".streetCont")
+    let overlays = document.querySelectorAll(".streetViewSec .streetCont .tabsCont .tab-content .overlay")
+
+    overlays.forEach((overlay) => {
+        $(overlay).on('click', function () {
+            $(this).addClass('d-none')
+        })
+    })
 
     gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
