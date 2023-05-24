@@ -159,7 +159,7 @@ figure {
 }
 
 section {
-    min-height: 100svh;
+    min-height: 100dvh;
     position: relative;
     display: flex;
     align-items: center;
