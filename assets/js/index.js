@@ -1,8 +1,9 @@
 // function initialization
 $(window).on("load", function () {
     if (window.innerWidth > 991) {
-        lenisSetup();
+
     }
+    lenisSetup();
     preloader()
 });
 
