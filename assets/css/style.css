@@ -6,14 +6,6 @@
     --body-bg: #ffffff;
 }
 
-body {
-    position: relative;
-    font-family: 'Poppins', sans-serif;
-    background: var(--body-bg);
-    box-sizing: border-box;
-    overflow-x: clip;
-}
-
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
@@ -36,6 +28,17 @@ html {
     font-size: 16px;
     scroll-behavior: initial !important;
     overscroll-behavior: none !important;
+    overflow: hidden;
+}
+
+body {
+    /*position: relative;*/
+    font-family: 'Poppins', sans-serif;
+    background: var(--body-bg);
+    box-sizing: border-box;
+    overflow-x: clip;
+    position: fixed;
+    overflow-y: scroll;
 }
 
 p {
