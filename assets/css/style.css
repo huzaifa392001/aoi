@@ -28,17 +28,14 @@ html {
     font-size: 16px;
     scroll-behavior: initial !important;
     overscroll-behavior: none !important;
-    overflow: hidden;
 }
 
 body {
-    /*position: relative;*/
+    position: relative;
     font-family: 'Poppins', sans-serif;
     background: var(--body-bg);
     box-sizing: border-box;
     overflow-x: clip;
-    position: fixed;
-    overflow-y: scroll;
 }
 
 p {
@@ -162,8 +159,7 @@ figure {
 }
 
 section {
-    min-height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: 100dvh;
     position: relative;
     display: flex;
     align-items: center;
