@@ -282,6 +282,18 @@
         flex-direction: column;
         gap: 2rem;
     }
+
+    .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe,
+    .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay,
+    .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay::before,
+    .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe,
+    .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay,
+    .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay::before,
+    .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe,
+    .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay,
+    .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay::before {
+        right: 0;
+    }
 }
 
 @media (max-width: 400px) {
