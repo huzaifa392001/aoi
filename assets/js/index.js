@@ -4,11 +4,9 @@ $(window).on("load", function () {
         lenisSetup();
     }
     preloader()
-    // $(window).scrollTop(0);
 });
 
 $(function () {
-    $(window).scrollTop(0);
     gsap.registerPlugin(ScrollTrigger);
     $('[data-magnetic]').each(function () {
         new Magnetic(this);
