@@ -293,7 +293,7 @@ function stackingCardsFunc() {
                     $(card).addClass("active")
                 },
                 onLeaveBack: () => {
-                    $(card).removeClass("active")
+                    return i === 0 ? '' : $(card).removeClass("active");
                 },
             }
         })
