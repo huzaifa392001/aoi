@@ -11,6 +11,7 @@ $(function () {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.normalizeScroll();
     $('[data-magnetic]').each(function () {
         new Magnetic(this);
     });
