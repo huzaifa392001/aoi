@@ -1069,3 +1069,42 @@ header .navbar-nav .nav-item .nav-link:hover::before {
         transform: rotateY(180deg) rotate(0deg);
     }
 }
+
+.servSlider .panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.subHeading, .servSlider .subHeading {
+    flex: 0 1 20%;
+}
+
+.slideSec .row {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.slideSec [class*= 'container'] {
+    height: 100%;
+}
+
+.slideSec .row > div:last-of-type {
+    height: 70%;
+}
+
+.slideSec .row > div:first-of-type {
+    height: 30%;
+}
+
+.slideSec .secHeading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.servSlider {
+    height: 100%;
+}

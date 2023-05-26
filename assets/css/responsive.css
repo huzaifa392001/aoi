@@ -238,6 +238,7 @@
         width: 100%;
         object-fit: contain;
         margin: 0;
+        max-height: 200px;
     }
 
     .servSlider p {
