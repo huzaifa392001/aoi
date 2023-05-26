@@ -9,6 +9,10 @@
         font-size: 4.5rem;
     }
 
+    .insightSec {
+        padding: 3rem 0;
+    }
+
     .heroSec .content p {
         width: 75%;
     }
@@ -41,6 +45,14 @@
     .heroSec .content {
         justify-content: initial;
         padding-top: 10rem;
+    }
+
+    .servSlider img {
+        height: 250px;
+    }
+
+    .servSlider p {
+        font-size: 1.75rem;
     }
 }
 

@@ -667,7 +667,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     color: var(--theme-color);
     font-size: 2rem;
     width: 75%;
-    margin: auto;
+    margin: 0 auto auto;
 }
 
 .slideSec .swiper-button-next,
