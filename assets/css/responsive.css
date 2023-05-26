@@ -245,6 +245,10 @@
         width: 100%;
         font-size: 1.25rem;
     }
+
+    .slideSec .row > div:first-of-type {
+        height: 30%;
+    }
 }
 
 @media (max-width: 575.98px) {

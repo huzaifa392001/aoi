@@ -273,7 +273,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 .progressBarWrapper {
     position: fixed;
     z-index: 1111;
-    bottom: 50px;
+    bottom: 20px;
     left: 0;
     width: 95%;
     margin: 0 2.5%;
@@ -1091,11 +1091,11 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 }
 
 .slideSec .row > div:last-of-type {
-    height: 70%;
+    height: 80%;
 }
 
 .slideSec .row > div:first-of-type {
-    height: 30%;
+    height: 10%;
 }
 
 .slideSec .secHeading {
