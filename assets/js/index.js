@@ -22,7 +22,7 @@ function allFunctionInit() {
     heroAnim();
     progressBar();
     customSlider();
-    revealingImg();
+    // revealingImg();
     stackingCardsFunc();
 }
 
@@ -152,13 +152,11 @@ function progressBar() {
 
 }
 
-function revealingImg() {
-}
-
 function customSlider() {
     let mm = gsap.matchMedia();
     let slide = document.querySelector('.slider-stack .slider-list li:nth-child(3)')
-    let img = document.querySelector('.revealingImg')
+    let img = document.querySelector('.slider-list')
+    let overlay = document.querySelector('.customSlide a')
     let imgTl = gsap.timeline({
         scrollTrigger: {
             trigger: '.insightSec',
@@ -166,32 +164,34 @@ function customSlider() {
             pin: true,
             pinContainer: false,
             onLeave: () => {
-                imgTl.to(img, {autoAlpha: 0, ease: "none"})
+                document.querySelector('.slider-stack').classList.add('activated')
             }
         }
     })
-
-    mm.add("(min-width: 992px)", () => {
-        imgTl
-            .to(img, {scale: 0.45, y: 10})
-            .to(img, {css: {height: "1200px"}}, "-=0.5")
-    });
-
-    mm.add("(max-width: 991px) and (min-width: 768px)", () => {
-        imgTl
-            .to(img, {scale: 0.5})
-            .to(img, {css: {height: "1000px"}}, "-=0.5")
-    });
-    mm.add("(max-width: 767px) and (min-width: 576px)", () => {
-        imgTl
-            .to(img, {scaleY: 0.5, scaleX: 0.985})
-            .to(img, {css: {height: "1000px"}}, "-=0.5")
-    });
-    mm.add("(max-width: 575px)", () => {
-        imgTl
-            .to(img, {scaleY: 0.5, scaleX: 0.95, y: 150})
-            .to(img, {css: {height: "700px"}}, "-=0.5")
-    });
+    imgTl
+        .from(img, {scale: 4})
+    // .to(img, {css: {height: "1200px"}}, "-=0.5")
+    // mm.add("(min-width: 992px)", () => {
+    //     imgTl
+    //         .to(img, {scale: 0.45, y: 10})
+    //         .to(img, {css: {height: "1200px"}}, "-=0.5")
+    // });
+    //
+    // mm.add("(max-width: 991px) and (min-width: 768px)", () => {
+    //     imgTl
+    //         .to(img, {scale: 0.5})
+    //         .to(img, {css: {height: "1000px"}}, "-=0.5")
+    // });
+    // mm.add("(max-width: 767px) and (min-width: 576px)", () => {
+    //     imgTl
+    //         .to(img, {scaleY: 0.5, scaleX: 0.985})
+    //         .to(img, {css: {height: "1000px"}}, "-=0.5")
+    // });
+    // mm.add("(max-width: 575px)", () => {
+    //     imgTl
+    //         .to(img, {scaleY: 0.5, scaleX: 0.95, y: 150})
+    //         .to(img, {css: {height: "700px"}}, "-=0.5")
+    // });
 
     let $card = $('.customSlide');
     let lastCard = $(".slider-list .card").length - 1;
