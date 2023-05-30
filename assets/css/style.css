@@ -402,12 +402,14 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     margin: 20px auto;
 }
 
-.slider-stack.activated .buttons{
-    display: flex;
+.slider-stack.activated .buttons {
+    opacity: 1;
+    visibility: visible;
+    user-select: auto;
 }
 
 .slider-stack .buttons {
-    display: none;
+    display: flex;
     position: absolute;
     background: transparent;
     border: 2px solid #000;
@@ -424,6 +426,9 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     align-items: center;
     justify-content: center;
     font-weight: 600;
+    opacity: 0;
+    visibility: visible;
+    user-select: none;
 }
 
 .slider-stack .buttons:hover {
@@ -764,19 +769,24 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     border-left: 1px solid #eee;
 }
 
-.slider-stack.activated .slider-list li a{
-    display: flex;
+.slider-stack.activated .slider-list li a {
+    opacity: 1;
+    visibility: visible;
+    user-select: auto;
 }
 
 .slider-stack .slider-list li a {
     position: absolute;
     inset: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: end;
     background: rgba(0, 0, 0, 0.5);
     padding: 3rem 8rem;
     opacity: 0;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
 }
 
 .slider-stack .slider-list li a .heading {
@@ -796,7 +806,7 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     overflow: hidden;
 }
 
-.slider-stack .slider-list li:hover a {
+.slider-stack .slider-list.activated li:hover a {
     opacity: 1;
 }
 
@@ -844,7 +854,6 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     border-radius: 10px;
     background: var(--theme-color);
 }
-
 
 .streetViewSec .streetCont .tabsCont ul li {
     width: auto;

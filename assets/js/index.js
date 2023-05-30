@@ -163,35 +163,22 @@ function customSlider() {
             scrub: 0.5,
             pin: true,
             pinContainer: false,
+            onEnter: () => {
+                document.querySelector('.slider-stack').classList.remove('activated')
+            },
             onLeave: () => {
+                document.querySelector('.slider-stack').classList.add('activated')
+            },
+            onEnterBack: () => {
+                document.querySelector('.slider-stack').classList.remove('activated')
+            },
+            onLeaveBack: () => {
                 document.querySelector('.slider-stack').classList.add('activated')
             }
         }
     })
     imgTl
-        .from(img, {scale: 4})
-    // .to(img, {css: {height: "1200px"}}, "-=0.5")
-    // mm.add("(min-width: 992px)", () => {
-    //     imgTl
-    //         .to(img, {scale: 0.45, y: 10})
-    //         .to(img, {css: {height: "1200px"}}, "-=0.5")
-    // });
-    //
-    // mm.add("(max-width: 991px) and (min-width: 768px)", () => {
-    //     imgTl
-    //         .to(img, {scale: 0.5})
-    //         .to(img, {css: {height: "1000px"}}, "-=0.5")
-    // });
-    // mm.add("(max-width: 767px) and (min-width: 576px)", () => {
-    //     imgTl
-    //         .to(img, {scaleY: 0.5, scaleX: 0.985})
-    //         .to(img, {css: {height: "1000px"}}, "-=0.5")
-    // });
-    // mm.add("(max-width: 575px)", () => {
-    //     imgTl
-    //         .to(img, {scaleY: 0.5, scaleX: 0.95, y: 150})
-    //         .to(img, {css: {height: "700px"}}, "-=0.5")
-    // });
+        .from(img, {scale: 3})
 
     let $card = $('.customSlide');
     let lastCard = $(".slider-list .card").length - 1;
