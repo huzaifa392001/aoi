@@ -586,9 +586,13 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     padding: 8rem 0;
 }
 
-.dataSec .subHeading {
+.dataSec .floatingContent {
     position: sticky;
     top: 40vh;
+}
+
+.dataSec .floatingContent p {
+    font-size: 1.25rem;
 }
 
 .dataSec .row + .row {
@@ -1140,3 +1144,147 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     color: #fff;
     font-size: 1.375rem;
 }
+
+/* Inner pages */
+
+.insightSec .subContent {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.insightSec .subContent h3 {
+    color: #000;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.insightSec .subContent p {
+    color: #000;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.insightSec .subContent .linkBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #000;
+    margin-top: 1rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.insightSec .subContent .linkBtn i {
+    border: 1px solid #000;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gainInsight {
+    background: var(--theme-color);
+    margin: 3rem 0;
+}
+
+.gainInsight .content .secHeading {
+    color: #fff;
+    font-size: 4rem;
+    text-align: left;
+}
+
+.gainInsight .content .btnCont {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.gainInsight .content {
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.gainInsight .content .btnCont .themeBtn {
+    background: linear-gradient(to right, #fff, #fff);
+    color: var(--theme-color);
+    border: 2px solid #fff;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.gainInsight .content .btnCont .themeBtn:last-of-type {
+    background: linear-gradient(to right, #fff, #fff);
+    border: 2px solid #fff;
+    color: #fff;
+    background-size: 0% 100%;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.gainInsight .mainImg img {
+    width: 100%;
+}
+
+.gainInsight .content .btnCont .themeBtn:hover {
+    background-size: 0 100%;
+    color: #fff;
+}
+
+.gainInsight .content .btnCont .themeBtn:last-of-type:hover {
+    background-size: 100% 100%;
+    color: var(--theme-color);
+}
+
+/* Basic Section Heading Starts */
+.section-heading {
+    font-size: 6rem;
+    font-weight: 900;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    line-height: 0.85;
+    color: #000000;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--theme-color);
+    font-family: 'Poppins', sans-serif;
+    /* margin: 0 -2rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.section-heading.overflow-heading {
+    overflow: hidden;
+    max-height: 42rem;
+    font-size: 38.125rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.darkBg .section-heading {
+    color: #fff;
+    -webkit-text-fill-color: var(--theme-color);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #fff;
+}
+
+.section-heading span {
+    display: block;
+}
+
+.extraCreative {
+    height: auto;
+    min-height: auto;
+    padding: 8rem 0;
+}
+
+/* Basic Section Heading Ends */

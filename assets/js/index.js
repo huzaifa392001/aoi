@@ -24,6 +24,7 @@ function allFunctionInit() {
     customSlider();
     // revealingImg();
     stackingCardsFunc();
+    rollingText();
 }
 
 function lenisSetup() {
@@ -157,59 +158,67 @@ function customSlider() {
     let slide = document.querySelector('.slider-stack .slider-list li:nth-child(3)')
     let img = document.querySelector('.slider-list')
     let overlay = document.querySelector('.customSlide a')
-    let imgTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.insightSec',
-            scrub: 0.5,
-            pin: true,
-            pinContainer: false,
-            onEnter: () => {
-                document.querySelector('.slider-stack').classList.remove('activated')
-            },
-            onLeave: () => {
-                document.querySelector('.slider-stack').classList.add('activated')
-            },
-            onEnterBack: () => {
-                document.querySelector('.slider-stack').classList.remove('activated')
-            },
-            onLeaveBack: () => {
-                document.querySelector('.slider-stack').classList.add('activated')
+    if (!document.querySelector('.insightSec.notAnimate')) {
+        let imgTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.insightSec',
+                scrub: 0.5,
+                pin: true,
+                pinContainer: false,
+                onEnter: () => {
+                    document.querySelector('.slider-stack').classList.remove('activated')
+                },
+                onLeave: () => {
+                    document.querySelector('.slider-stack').classList.add('activated')
+                },
+                onEnterBack: () => {
+                    document.querySelector('.slider-stack').classList.remove('activated')
+                },
+                onLeaveBack: () => {
+                    document.querySelector('.slider-stack').classList.add('activated')
+                }
             }
-        }
+        })
+        imgTl
+            .from(img, {scale: 3})
+    } else {
+        $('.slider-stack').addClass('activated')
+    }
+
+    let sliders = document.querySelectorAll('.slider-stack')
+    sliders.forEach((slider) => {
+        var card = $(slider).find('.customSlide');
+        let lastCard = $(slider).find(".slider-list .card").length - 1;
+        let next = $(slider).find('.next')
+        let prev = $(slider).find('.prev')
+
+        $(next).on('click', function () {
+            let prependList = function () {
+                if ($(slider).find('.customSlide').hasClass('activeNow')) {
+                    let $slicedCard = $(slider).find('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
+                    $('.slider-list').prepend($slicedCard);
+                }
+            }
+            $(slider).find('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+            setTimeout(function () {
+                prependList();
+            }, 150);
+        });
+
+        $(prev).on('click', function () {
+            let appendToList = function () {
+                if ($(slider).find('.customSlide').hasClass('activeNow')) {
+                    let $slicedCard = $(slider).find('.customSlide').slice(0, 1).addClass('transformPrev');
+                    $('.slider-list').append($slicedCard);
+                }
+            }
+
+            $(slider).find('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
+            setTimeout(function () {
+                appendToList();
+            }, 150);
+        });
     })
-    imgTl
-        .from(img, {scale: 3})
-
-    let $card = $('.customSlide');
-    let lastCard = $(".slider-list .card").length - 1;
-
-    $('.next').click(function () {
-        let prependList = function () {
-            if ($('.customSlide').hasClass('activeNow')) {
-                let $slicedCard = $('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
-                $('.slider-list').prepend($slicedCard);
-            }
-        }
-        $('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
-        setTimeout(function () {
-            prependList();
-        }, 150);
-    });
-
-    $('.prev').click(function () {
-        let appendToList = function () {
-            if ($('.customSlide').hasClass('activeNow')) {
-                let $slicedCard = $('.customSlide').slice(0, 1).addClass('transformPrev');
-                $('.slider-list').append($slicedCard);
-            }
-        }
-
-        $('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
-        setTimeout(function () {
-            appendToList();
-        }, 150);
-    });
-
 }
 
 function servSliderFunc() {
@@ -236,29 +245,31 @@ function servSliderFunc() {
 }
 
 function stackingCardsFunc() {
+    let section = document.querySelector('.servSlider')
 
     let sections = gsap.utils.toArray(".panel");
     let cardCont = document.querySelectorAll(".streetCont")
     let overlays = document.querySelectorAll(".streetViewSec .streetCont .tabsCont .tab-content .overlay")
-
     overlays.forEach((overlay) => {
         $(overlay).on('click', function () {
             $(this).addClass('d-none')
         })
     })
 
-    gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".slideSec",
-            pin: true,
-            scrub: 1,
-            snap: 1 / (sections.length - 1),
-            end: () => "+=" + (document.querySelector(".servSlider").offsetWidth) * 2
-        }
-    });
+    if (section) {
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".slideSec",
+                pin: true,
+                scrub: 1,
+                snap: 1 / (sections.length - 1),
+                end: () => "+=" + (section.offsetWidth) * 2
+            }
+        });
 
+    }
     cardCont.forEach((card, i) => {
         let cardTl = gsap.timeline({
             default: {
@@ -287,4 +298,28 @@ function stackingCardsFunc() {
             }
         })
     })
+}
+
+function rollingText() {
+    const headings = document.querySelectorAll(".section-heading");
+    if (headings.length != 0) {
+        headings.forEach((heading) => {
+            const rollLeft = heading.querySelector('.rollLeft')
+            const rollRight = heading.querySelector('.rollRight')
+
+
+            let headingAnim = gsap.timeline({
+                scrollTrigger: {
+                    trigger: heading,
+                    // markers: true,
+                    scrub: 1,
+                    start: "top bottom",
+                    end: "bottom 25%"
+                },
+            })
+
+            headingAnim.from(rollLeft, {xPercent: -80})
+                .from(rollRight, {xPercent: 80}, "<");
+        });
+    }
 }
