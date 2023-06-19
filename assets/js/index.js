@@ -158,7 +158,7 @@ function customSlider() {
     let slide = document.querySelector('.slider-stack .slider-list li:nth-child(3)')
     let img = document.querySelector('.slider-list')
     let overlay = document.querySelector('.customSlide a')
-    if (!document.querySelector('.insightSec.notAnimate')) {
+    if (!document.querySelector('.insightSec.notAnimate') && document.querySelector('.slider-stack')) {
         let imgTl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.insightSec',
@@ -185,40 +185,43 @@ function customSlider() {
         $('.slider-stack').addClass('activated')
     }
 
-    let sliders = document.querySelectorAll('.slider-stack')
-    sliders.forEach((slider) => {
-        var card = $(slider).find('.customSlide');
-        let lastCard = $(slider).find(".slider-list .card").length - 1;
-        let next = $(slider).find('.next')
-        let prev = $(slider).find('.prev')
+    let sliders = $('.slider-stack');
+    sliders.each(function () {
+        const slider = $(this);
+        const card = slider.find('.customSlide');
+        let lastCard = slider.find(".slider-list .card").length - 1;
+        let next = slider.find('.next');
+        let prev = slider.find('.prev');
 
-        $(next).on('click', function () {
+        next.on('click', function () {
             let prependList = function () {
-                if ($(slider).find('.customSlide').hasClass('activeNow')) {
-                    let $slicedCard = $(slider).find('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
-                    $('.slider-list').prepend($slicedCard);
+                if (slider.find('.customSlide').hasClass('activeNow')) {
+                    let slicedCard = slider.find('.customSlide').slice(lastCard).removeClass('transformThis activeNow');
+                    slider.find('.slider-list').prepend(slicedCard);
                 }
-            }
-            $(slider).find('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+            };
+
+            slider.find('.slider-list li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
             setTimeout(function () {
                 prependList();
             }, 150);
         });
 
-        $(prev).on('click', function () {
+        prev.on('click', function () {
             let appendToList = function () {
-                if ($(slider).find('.customSlide').hasClass('activeNow')) {
-                    let $slicedCard = $(slider).find('.customSlide').slice(0, 1).addClass('transformPrev');
-                    $('.slider-list').append($slicedCard);
+                if (slider.find('.customSlide').hasClass('activeNow')) {
+                    let slicedCard = slider.find('.customSlide').slice(0, 1).addClass('transformPrev');
+                    slider.find('.slider-list').append(slicedCard);
                 }
-            }
+            };
 
-            $(slider).find('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
+            slider.find('.slider-list li').removeClass('transformPrev').last().addClass('activeNow').prevAll().removeClass('activeNow');
             setTimeout(function () {
                 appendToList();
             }, 150);
         });
-    })
+    });
+
 }
 
 function servSliderFunc() {
