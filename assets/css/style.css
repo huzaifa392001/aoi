@@ -1343,10 +1343,6 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     object-fit: fill;
 }
 
-.aboutSec .row + .row {
-    margin-top: 8rem;
-}
-
 .aboutContent h2 {
     font-size: 3rem;
     color: #333;

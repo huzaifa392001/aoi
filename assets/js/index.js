@@ -23,6 +23,14 @@ function allFunctionInit() {
     progressBar();
     customSlider();
     // revealingImg();
+    const slideSec = document.querySelector('.slideSec');
+    if (slideSec) {
+        HorizontalScroll('.servSlider', '.panel', '.slideSec')
+    }
+    const aboutSec = document.querySelector('.aboutSec');
+    if (aboutSec) {
+        HorizontalScroll('.aboutSlider', '.panel', '.aboutSec');
+    }
     stackingCardsFunc();
     rollingText();
 }
@@ -247,32 +255,58 @@ function servSliderFunc() {
     })
 }
 
-function stackingCardsFunc() {
-    let section = document.querySelector('.servSlider')
 
-    let sections = gsap.utils.toArray(".panel");
+function HorizontalScroll(section, panel, pinTarget) {
+
+    if (pinTarget) {
+        let parent = document.querySelector(section);
+        let panels = parent.querySelectorAll(panel);
+
+        gsap.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: pinTarget,
+                pin: true,
+                markers: true,
+                scrub: 1,
+                snap: 1 / (panels.length - 1),
+                end: () => "+=" + (parent.offsetWidth) * 2
+            }
+        });
+    }
+}
+
+function stackingCardsFunc() {
+    // let section = document.querySelector('.servSlider')
+    //
+    // let sections = gsap.utils.toArray(".panel");
+    //
+    // if (section) {
+    //     gsap.to(sections, {
+    //         xPercent: -100 * (sections.length - 1),
+    //         ease: "none",
+    //         scrollTrigger: {
+    //             trigger: ".slideSec",
+    //             pin: true,
+    //             markers: true,
+    //             scrub: 1,
+    //             snap: 1 / (sections.length - 1),
+    //             end: () => "+=" + (section.offsetWidth) * 2
+    //         }
+    //     });
+    //
+    // }
+
     let cardCont = document.querySelectorAll(".streetCont")
+
+
     let overlays = document.querySelectorAll(".streetViewSec .streetCont .tabsCont .tab-content .overlay")
     overlays.forEach((overlay) => {
         $(overlay).on('click', function () {
             $(this).addClass('d-none')
         })
     })
-
-    if (section) {
-        gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".slideSec",
-                pin: true,
-                scrub: 1,
-                snap: 1 / (sections.length - 1),
-                end: () => "+=" + (section.offsetWidth) * 2
-            }
-        });
-
-    }
     cardCont.forEach((card, i) => {
         let cardTl = gsap.timeline({
             default: {
