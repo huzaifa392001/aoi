@@ -33,6 +33,7 @@ function allFunctionInit() {
     }
     stackingCardsFunc();
     rollingText();
+    stackingNewsCard();
 }
 
 function lenisSetup() {
@@ -255,7 +256,6 @@ function servSliderFunc() {
     })
 }
 
-
 function HorizontalScroll(section, panel, pinTarget) {
 
     if (pinTarget) {
@@ -268,7 +268,7 @@ function HorizontalScroll(section, panel, pinTarget) {
             scrollTrigger: {
                 trigger: pinTarget,
                 pin: true,
-                markers: true,
+                // markers: true,
                 scrub: 1,
                 snap: 1 / (panels.length - 1),
                 end: () => "+=" + (parent.offsetWidth) * 2
@@ -278,28 +278,7 @@ function HorizontalScroll(section, panel, pinTarget) {
 }
 
 function stackingCardsFunc() {
-    // let section = document.querySelector('.servSlider')
-    //
-    // let sections = gsap.utils.toArray(".panel");
-    //
-    // if (section) {
-    //     gsap.to(sections, {
-    //         xPercent: -100 * (sections.length - 1),
-    //         ease: "none",
-    //         scrollTrigger: {
-    //             trigger: ".slideSec",
-    //             pin: true,
-    //             markers: true,
-    //             scrub: 1,
-    //             snap: 1 / (sections.length - 1),
-    //             end: () => "+=" + (section.offsetWidth) * 2
-    //         }
-    //     });
-    //
-    // }
-
     let cardCont = document.querySelectorAll(".streetCont")
-
 
     let overlays = document.querySelectorAll(".streetViewSec .streetCont .tabsCont .tab-content .overlay")
     overlays.forEach((overlay) => {
@@ -321,16 +300,16 @@ function stackingCardsFunc() {
                 preventOverlaps: true,
                 fastScrollEnd: true,
                 onEnter: () => {
-                    $(card).addClass("active")
+                    card.classList.add("active")
                 },
                 onLeave: () => {
-                    $(card).removeClass("active")
+                    card.classList.remove("active")
                 },
                 onEnterBack: () => {
-                    $(card).addClass("active")
+                    card.classList.add("active")
                 },
                 onLeaveBack: () => {
-                    return i === 0 ? '' : $(card).removeClass("active");
+                    return i === 0 ? '' : card.classList.remove("active");
                 },
             }
         })
@@ -351,7 +330,7 @@ function rollingText() {
                     // markers: true,
                     scrub: 1,
                     start: "top bottom",
-                    end: "bottom 25%"
+                    end: "bottom 50%"
                 },
             })
 
@@ -359,4 +338,36 @@ function rollingText() {
                 .from(rollRight, {xPercent: 80}, "<");
         });
     }
+}
+
+function stackingNewsCard() {
+    let cards = document.querySelectorAll('.caseStudy')
+    cards.forEach((card) => {
+        let cardTl = gsap.timeline({
+            default: {
+                delay: 1,
+            },
+            scrollTrigger: {
+                trigger: card,
+                // markers: true,
+                start: "top 15%",
+                end: "bottom 15%",
+                toggleActions: "play none none reverse",
+                preventOverlaps: true,
+                fastScrollEnd: true,
+                onEnter: () => {
+                    card.classList.add("active")
+                },
+                onLeave: () => {
+                    card.classList.remove("active")
+                },
+                onEnterBack: () => {
+                    card.classList.add("active")
+                },
+                onLeaveBack: () => {
+                    return i === 0 ? '' : card.classList.remove("active");
+                },
+            }
+        })
+    })
 }

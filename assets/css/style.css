@@ -6,14 +6,14 @@
     --body-bg: #ffffff;
 }
 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-    border-radius: 10px;
-}
+/*::-webkit-scrollbar-track {*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*    background-color: #F5F5F5;*/
+/*    border-radius: 10px;*/
+/*}*/
 
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 5px;
     height: 2px;
     background-color: #F5F5F5;
 }
@@ -870,7 +870,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     height: 600px;
 }
 
-.streetViewSec .streetCont .content .profileBox {
+.streetViewSec .streetCont .content .profileBox,
+.caseStudy .profileBox {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -880,18 +881,21 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     transition: all 0.3s ease-in-out;
 }
 
-.streetViewSec .streetCont .content .profileBox figure {
+.streetViewSec .streetCont .content .profileBox figure,
+.caseStudy .profileBox figure {
     width: 30%;
     flex: 0 1 30%;
 }
 
-.streetViewSec .streetCont .content .profileBox figure img {
+.streetViewSec .streetCont .content .profileBox figure img,
+.caseStudy .profileBox figure img {
     width: 100%;
     height: 250px;
     object-fit: contain;
 }
 
-.streetViewSec .streetCont .content .profileBox h3 {
+.streetViewSec .streetCont .content .profileBox h3,
+.caseStudy .profileBox h3 {
     color: var(--theme-color);
     font-size: 2.5rem;
     flex: 0 1 70%;
@@ -899,11 +903,13 @@ header .navbar-nav .nav-item .nav-link:hover::before {
     margin: 0;
 }
 
-.streetViewSec .streetCont .content .profileBox h3 span {
+.streetViewSec .streetCont .content .profileBox h3 span,
+.caseStudy .profileBox h3 span {
     display: block;
 }
 
-.streetViewSec .streetCont .content p {
+.streetViewSec .streetCont .content p,
+.caseStudy .content p {
     font-size: 1.25rem;
     /*background: #fff;*/
     opacity: 0;
@@ -913,7 +919,9 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont.active .tabsCont ul,
 .streetViewSec .streetCont.active .content .profileBox,
-.streetViewSec .streetCont.active .content p {
+.streetViewSec .streetCont.active .content p,
+.caseStudy.active .content .profileBox,
+.caseStudy.active .content p {
     opacity: 1;
     visibility: visible;
 }
@@ -948,7 +956,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content iframe,
 .streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay,
-.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay::before {
+.streetViewSec .streetCont:nth-child(2) .tabsCont .tab-content .overlay::before,
+.servicesCont .servSec:nth-child(2) .stackFigure {
     position: relative;
     top: 0.5rem;
     right: 0.5rem;
@@ -956,7 +965,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content iframe,
 .streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay,
-.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay::before {
+.streetViewSec .streetCont:nth-child(3) .tabsCont .tab-content .overlay::before,
+.servicesCont .servSec:nth-child(3) .stackFigure {
     position: relative;
     top: 1rem;
     right: 1rem;
@@ -964,7 +974,8 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content iframe,
 .streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay,
-.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay::before {
+.streetViewSec .streetCont:nth-child(4) .tabsCont .tab-content .overlay::before,
+.servicesCont .servSec:nth-child(4) .stackFigure {
     position: relative;
     top: 1.5rem;
     right: 1.5rem;
@@ -1251,21 +1262,20 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 /* Basic Section Heading Starts */
 .section-heading {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: 900;
     letter-spacing: 7px;
     text-transform: uppercase;
-    line-height: 0.85;
+    line-height: 1;
     color: #000000;
-    -webkit-text-fill-color: #fff;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: var(--theme-color);
-    font-family: 'Poppins', sans-serif;
-    /* margin: 0 -2rem; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+}
+
+.section-heading span:last-of-type {
+    color: var(--theme-color);
 }
 
 .section-heading.overflow-heading {
@@ -1373,4 +1383,44 @@ header .navbar-nav .nav-item .nav-link:hover::before {
 
 .aboutContent p + p {
     margin-top: 1rem;
+}
+
+.caseStudy {
+    position: sticky;
+    top: 0;
+}
+
+.caseStudy .slider-stack .prev {
+    left: 20px;
+}
+
+.caseStudy .slider-stack .next {
+    right: 20px;
+}
+
+.caseStudy .slider-stack .buttons {
+    color: #fff;
+    border-color: #fff;
+}
+
+.caseStudy .content {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.caseStudy.active .content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.servSec .stackFigure img {
+    width: 100%;
+    height: 550px;
+    object-fit: contain;
+}
+
+.headingSec {
+    min-height: auto;
+    padding: 6rem 0;
 }
